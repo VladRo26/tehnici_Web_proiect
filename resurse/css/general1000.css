@@ -1,0 +1,53 @@
+html{
+    font-size: 16px;
+}
+
+#grid-pagina{
+    grid-template-columns: 1fr 1.5fr 1.2fr ;
+    grid-template-rows: 1fr 2fr 1fr 1fr 1fr;
+    grid-template-areas: "z-masini z-masini z-masini"
+                          "z-turis z-turis z-unde"
+                          "z-turis z-turis z-suv"
+                          "z-cabrio z-coupe z-sedan"
+                          "z-break z-break z-compacta"
+                          ;
+    gap:5px 3px;
+}
+
+
+img{
+    max-width: 600px;
+    min-width: 200px;
+}
+
+body{
+    --spatiere-pagina:10px;
+    --padding-sectiune:7px;
+}
+
+.container-iframe1{
+    height: 40%;
+    width: 60%;
+}
+
+.container-iframe1 iframe{
+    height: 100%;
+    width: 100%;
+}
+
+video{
+    width:50%;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 5x;
+}
+video::poster {
+    width: 50%;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 5px;
+}
+
+#p_col {
+    column-count: 1;
+}

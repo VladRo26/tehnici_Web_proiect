@@ -1,0 +1,39 @@
+#link-top {
+    position: fixed;
+    bottom: 0.1em;
+    opacity: 0.2;
+    left: 0.3em;
+    width: 3rem;
+    box-sizing: border-box;
+    height: 3rem;   
+    line-height: 4rem;
+    text-align: center;
+    border-left: 0.3rem solid black;
+    border-right: 0.3rem solid black;
+    border-top:none;
+    border-radius: 40%;
+    transition: opacity 0.7s;
+}
+
+#link-top:hover{
+    opacity: 1;
+}
+
+#link-top:hover #triunghi{
+    border-bottom-color: yellow;
+    transform: translateY(-30%);
+}
+
+#triunghi:hover::after {
+    content: "Link catre top-ul paginii";
+    display: inline-block;
+    position: absolute;
+    bottom: 4%;
+    right: -10rem;
+    transform: translateZ(50%), translateY(-50%);
+    background-color:var(--culoare_background2);
+    color: var(--culoare_text3);
+    padding: 0.1em;
+    border-radius: 0.3em;
+    font-size: 0.9em;
+}

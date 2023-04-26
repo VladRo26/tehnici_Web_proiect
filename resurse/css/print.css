@@ -1,0 +1,67 @@
+@media print{
+    #banner{
+        position: absolute;
+        display: block;
+        margin: 0 auto;    
+        width: 80%;
+        height: 40%;
+        border: 2px dotted black;
+        text-align: center;
+        right: 0;
+        left: 0;
+        top: 0;  
+        font-size: 2.5rem;
+    }
+
+    img, video, iframe, figcaption, #link-top ,.container-iframe1{
+        display: none;
+    }
+    
+    #grid-pagina{
+        display: block;
+    }
+
+    a{
+        text-decoration: none;
+        color:black;
+    }
+
+    h1{
+        page-break-after: always;
+        margin-top: 50%;
+        text-align: center;
+        font-size: 2.5em;
+        text-decoration: underline;
+    }
+
+    nav{
+        display: none;
+    }
+
+    .break{
+        page-break-before: always;
+    }
+
+    #watermark{
+        display: block;
+        position: fixed;
+        height: 2cm;
+        width: 100px;
+        border: 2px double black;
+        opacity: 0.65;
+        right:0;
+        bottom: 0;
+    }
+
+    @page:left{
+
+        margin-left: 2.5cm;
+        margin-right: 0.5cm;
+    }
+
+    @page:right{
+        margin-left:0.5cm;
+        margin-right:2.5cm;
+    }
+
+}

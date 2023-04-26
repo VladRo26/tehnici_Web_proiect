@@ -1,0 +1,19 @@
+body {
+    background-image: url('../imagini/fundal1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    animation: change-background 20s infinite;
+}
+  
+@keyframes change-background {
+    0% {
+      background-image: url('../imagini/fundal1.jpg');
+    }
+    50% {
+      background-image: url('../imagini/fundal2.jpg');
+    }
+    100% {
+      background-image: url('../imagini/fundal3.jpg');
+    }
+}
+  

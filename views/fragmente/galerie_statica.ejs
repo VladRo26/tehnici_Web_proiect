@@ -1,0 +1,36 @@
+<div id="grid-galerie">
+    <% let count = 0; %>
+    <% for (let i = 0; i < locals.imagini.length; i++) { 
+        const imag = locals.imagini[i];
+        const interval = imag.timp.split('-');
+        const oraInceput = parseInt(interval[0]);
+        const oraSfarsit = parseInt(interval[1]);
+        const oraCurenta = new Date().getHours();
+        if (oraCurenta >= oraInceput && oraCurenta <= oraSfarsit) {
+            if (count < 5) { %>
+                <figure>
+                    <picture>
+                        <source srcset="<%- imag.fisier_mic %>" media="(max-width:500px)" />
+                        <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                        <img src="<%- imag.fisier %>" alt="imagine">
+                    </picture>
+                    <figcaption><%- imag.descriere %></figcaption>
+                </figure>
+            <% } else if (count === 5 || count === 6) { %>
+                <div class="spacer"></div>
+            <% } else if (count >= 7 && count < 12) { %>
+                <figure>
+                    <picture>
+                        <source srcset="<%- imag.fisier_mic %>" media="(max-width:500px)" />
+                        <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                        <img src="<%- imag.fisier %>" alt="imagine">
+                    </picture>
+                    <figcaption><%- imag.descriere %></figcaption>
+                </figure>
+            <% }
+            count++;
+        }
+    } %>
+</div>
+
+

@@ -1,0 +1,32 @@
+
+caption{
+    caption-side: bottom;
+}
+
+table,td{
+    border: 0.5px dotted;
+    text-align: center;
+}
+
+tr:hover {
+    box-shadow: 0 0 10px rgb(18, 91, 175, 0.671);
+    opacity: 1;
+    transition: opacity box-shadow 0.5s ease-in-out;
+  }
+
+table thead th{
+    border: 2px solid;
+}
+
+table tfoot td{
+    border: 2px solid;
+}
+
+table tr td:nth-child(even) + td:nth-child(odd) {
+    border-right: 2px solid #668cff;
+  }
+  
+ 
+  table tr td:nth-child(odd) + td:nth-child(even) {
+    border-left: 2px solid #4dffdb;
+  }

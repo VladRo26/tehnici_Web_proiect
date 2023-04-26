@@ -1,0 +1,95 @@
+{
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini": [
+		{
+			"fisier":"galerie1.png",
+			"descriere":"BMW SERIA 3",
+			"timp":"10:00-16:00"
+		},
+		{
+			"fisier":"galerie2.png",
+			"descriere":"BMW X4",
+			"timp":"16:00-20:00"			
+		},
+		{
+			"fisier":"galerie3.png",
+			"descriere":"BMW X7",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie4.png",
+			"descriere":"AUDI A6",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie5.png",
+			"descriere":"AUDI A7",
+			"timp":"05:00-10:00"
+		},
+		{
+			"fisier":"galerie6.png",
+			"descriere":"AUDI A4",
+			"timp":"04:00-09:00"
+		},
+		{
+			"fisier":"galerie7.png",
+			"descriere":"AUDI A8",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie8.png",
+			"descriere":"RENAULT CLIO",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie9.png",
+			"descriere":"PORSCHE 911",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie10.png",
+			"descriere":"PORSCHE 911",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie11.png",
+			"descriere":"PORSCHE CAYENNE",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie12.png",
+			"descriere":"FORD MUSTANG",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie13.png",
+			"descriere":"FORD KUGA",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie14.png",
+			"descriere":"FORD MONDEO",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie15.png",
+			"descriere":"RENAULT MEGANE",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie16.png",
+			"descriere":"TESLA MODEL Y",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie17.png",
+			"descriere":"TESLA MODEL S",
+			"timp":"00:00-23:59"
+		},
+		{
+			"fisier":"galerie18.png",
+			"descriere":"TESLA ROADSTER",
+			"timp":"00:00-23:59"
+		}
+	]
+}

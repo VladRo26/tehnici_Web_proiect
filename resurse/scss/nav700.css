@@ -1,0 +1,50 @@
+body {
+  --inaltime-meniu:40px;
+  --latime-buton:100%;
+}
+
+#acasa1 {
+  display: none;
+}
+
+#hamburger {
+  display: block;
+  margin: 0;
+}
+#hamburger > img {
+  height: var(--inaltime-meniu);
+  width: auto;
+  min-width: auto;
+  margin: 1;
+  display: block;
+}
+
+ul.meniu {
+  display: none;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 75%, black 100%);
+  mask-image: linear-gradient(to top, transparent 0%, black 75%, black 100%);
+  margin: 0;
+  -webkit-mask-size: 100% 400%;
+  mask-size: 100% 400%;
+  -webkit-mask-position: 0 75%;
+  mask-position: 0 75%;
+}
+
+#ch-menu:checked + ul.meniu {
+  animation-name: animatie_meniu;
+  animation-duration: 1.2s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  transform-origin: center top;
+  display: block;
+}
+
+@keyframes animatie_meniu {
+  100% {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+/*# sourceMappingURL=nav700.css.map */
