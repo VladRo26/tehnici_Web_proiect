@@ -8,7 +8,7 @@
         const oraCurenta = new Date().getHours();
         if (oraCurenta >= oraInceput && oraCurenta <= oraSfarsit) {
             if (count < 5) { %>
-                <figure>
+                <figure class="gal_fig">
                     <picture>
                         <source srcset="<%- imag.fisier_mic %>" media="(max-width:500px)" />
                         <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
@@ -19,7 +19,7 @@
             <% } else if (count === 5 || count === 6) { %>
                 <div class="spacer"></div>
             <% } else if (count >= 7 && count < 12) { %>
-                <figure>
+                <figure class="gall_fig">
                     <picture>
                         <source srcset="<%- imag.fisier_mic %>" media="(max-width:500px)" />
                         <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />

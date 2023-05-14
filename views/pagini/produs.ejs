@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Dealerul auto Turis Performance oferă o gamă largă de vehicule pentru clienți în căutarea unei mașini de înaltă calitate, fie că este vorba de autoturisme compacte, SUV-uri sau mașini de familie.">
+        <meta name="keywords" content="masini, Turis Peformance, coupe, break, sedan, cabrio, BMW, Audi, Ford, Renault, Skoda">
+        
+        <title>Turis Peformance</title>
+        <%- include("../fragmente/head") %>     
+        <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+
+    <main>
+        <section>
+            <h2>Pagină produs</h2>
+                <article id="art-produs">
+                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                    <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                    <p>Capacitate cilindrica: <span class="capacitate_cilindrica"><%- locals.prod.capacitate_cilindrica %> </span></p>
+                    <p>Combustibil: <span class="combustibil"><%- locals.prod.combustibil %> </span></p>
+                    <p>Data Fabricatie: <span class="data_fabricatie"><%- locals.prod.data_fabricare %> </span></p>
+                    <p>Tip caroserie: <span class="tip_caroserie"><%- locals.prod.tipuri_caroserie %> </span></p>
+                    <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
+                    <p>Marca: <span class="marca"><%- locals.prod.marca %> </span></p>
+                    <p>Dotari: <span class="dotrari"><%- locals.prod.dotari %> </span></p>
+                    <p>Accidentata: <span class="accidentata"><%- locals.prod.accidentata %> </span></p>
+                    <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+                    <figure class="imag-produs">
+                        <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                    </figure>    
+                </article>
+            
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

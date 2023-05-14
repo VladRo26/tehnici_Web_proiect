@@ -12,11 +12,11 @@
  counter-reset: nrimag 0;  /* nrimag=3 */
 }
 
-figure {
+figure.gall_fig {
   transition: transform 1.25s ease-in-out;
 }
 
-figure:hover {
+figure.gall_fig:hover {
   transform: translateY(-20%) scale(1.3);
 }
 

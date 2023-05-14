@@ -72,8 +72,18 @@
             </ul>
         </li>
         <li>
-            <a href="#Masini">Stoc masini
-            </a>
+            <div>
+                Stoc Masini
+            </div>
+            <ul>
+                <li><a href="/produse">Toate</a></li>
+                <!-- <li><a href="/produse?tip=cofetarie">Prajituri</a></li>
+                <li><a href="/produse?tip=gelaterie">Inghetata</a></li>
+                <li><a href="/produse?tip=patiserie">Patiserie</a></li> -->
+                <% for (let i = 0; i < obGlobal.optiuniMeniu.length; i++) { %>
+                    <li><a href="/produse?tip=<%- obGlobal.optiuniMeniu[i].unnest %>"><%- obGlobal.optiuniMeniu[i].unnest %></a></li>
+                  <% } %>
+            </ul>
         </li>
         <li>
             <a href="#Discounturi">Discounturi
