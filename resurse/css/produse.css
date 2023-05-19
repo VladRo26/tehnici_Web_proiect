@@ -54,5 +54,7 @@ article[class^="produs"] {
     content: "artc-" counter(produs-counter);
 }
 
-
+.culoare{
+    display: none;
+}
   

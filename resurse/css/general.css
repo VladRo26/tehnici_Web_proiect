@@ -81,6 +81,7 @@ body{
     min-width: 450px;
 }
 
+
 footer{
     background-color: var(--culoare_footer);
     color:var(--culoare_text_footer);
@@ -259,4 +260,13 @@ hr {
     background-image: 
     radial-gradient(circle, rgba(36,36,0,1) 20%, rgba(95,95,142,1) 50%, rgba(249,255,0,1) 70%);
     background-size: 40px 10px;
+}
+
+body.dark{
+    background-color: var(--culoare_background2);
+    color: var(--culoare_text2);
+    padding-left:var(--spatiere-pagina);
+    padding-right:var(--spatiere-pagina);
+    min-width: 450px;
+    border-color: var(--culoare_border_at);
 }

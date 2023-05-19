@@ -28,12 +28,32 @@
         </label>
         <label>Marca:
             <select id="inp-marca" multiple>
-                <option id="sel-toate" selected value="toate">toate</option>
-                <% for (let opt of locals.optiuni) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                <% } %>
+                <!-- <option id="sel-toate" selected value="toate">toate</option> -->
+                <option value="toate">toate</option>
+                <option value="Audi">Audi</option>
+                <option value="BMW">BMW</option>
+                <option value="Honda">Honda</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Dacia">Dacia</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Opel">Opel</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Renault">Renault</option>
             </select>
         </label>
+    </label>
+	<label>Culoare:
+		<input list="id_lista" id="i_datalist">
+		<datalist id="id_lista">
+            <option value="toate">toate</option>
+			<option value="negru">negru</option>
+			<option value="albastru">albastru</option>
+			<option value="rosu">rosu</option>
+			<option value="gri">gri</option>
+			<option value="galben">galben</option>
+            <option value="alb">alb</option>
+		</datalist>
+	</label>
         <div> Combustibil:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
             <p><label>Benzina
                 <input id="i_rad2"  name="gr_rad" value="benzina" type="radio"/>
@@ -51,6 +71,12 @@
                 <input id="i_rad5" checked name="gr_rad" value="toate" type="radio"/>
             </label>
         </div>
+        <label>Accidentat
+            <input id="i_check1" name="gr_chck" value="true" type="checkbox"/>
+        </label>
+        <label>Dotari:
+            <textarea id="i_textarea">ceva in textarea</textarea>
+        </label>
         <p>
             <button id="filtrare">Filtreaza</button> 
 
@@ -72,11 +98,12 @@
                             <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
                         </figure>
                         <div class="info-prod">
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="marca">Marca: <span class="val-marca"><%- prod.marca%></span></p>
-                            <p class="dotari">Dotari: <span class="val-dotari"><%- prod.dotari%></span></p>
+                            <p class="pret"><span class="val-pret"><%- prod.pret%></span></p>
+                            <p class="marca"><span class="val-marca"><%- prod.marca%></span></p>
+                            <p class="culoare"><span class="val-culoare"><%- prod.culoare%></span></p>
+                            <p class="dotari"><span class="val-dotari"><%- prod.dotari%></span></p>
                             <p class="data_fabricare"><time class="val-data_fabricare" datetime="<%- prod.data_fabricare_ISO %>"><%- new Date(prod.data_fabricare).toLocaleDateString('ro-RO', {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) %></time></p>
-                            <p class="accidentata">Accidentata: <span class="val-accidentata"><%- prod.accidentata%></span></p>
+                            <p class="accidentata"><span class="val-accidentata"><%- prod.accidentata%></span></p>
                         </div>
                     </div>
                       <div class="col2">  

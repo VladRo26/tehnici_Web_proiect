@@ -5,6 +5,17 @@ const sharp=require('sharp');
 const sass=require('sass');
 const ejs=require('ejs');
 const {Client} = require('pg');
+const AccesBD= require("./module_proprii/accesbd.js");
+ 
+AccesBD.getInstanta().select(
+    {tabel:"masini",
+    campuri:["nume", "pret", "culoare"],
+    conditiiAnd:["pret > 10000"]},
+    function (err, rez){
+        console.log(err);
+        console.log(rez);
+    }
+)
 
 var client= new Client({database:"site",
         user:"vlad1",
@@ -176,8 +187,6 @@ app.get("/produs/:id",function(req, res){
             res.render("pagini/produs", {prod:rezultat.rows[0]});
     });
 });
-
-
 
 
 
