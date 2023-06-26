@@ -27,7 +27,7 @@ body{
     --culoare_border_at:#C20F0C;
     --culoare_border_ms:#D6B140;
     --culoare_border_gr:#5779b6;
-    --spatiere-pagina:25px;
+    --spatiere-pagina:25px; 
     --padding-sectiune:15px;
 }
 
@@ -66,6 +66,9 @@ video::poster {
 header{
     background-color: var(--culoare_header);
     color: var(--culoare_text_header);
+    border: 1px solid salmon;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgb(0, 234, 255);
     
 }
 
@@ -85,6 +88,9 @@ body{
 footer{
     background-color: var(--culoare_footer);
     color:var(--culoare_text_footer);
+    border: 1px solid salmon;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgb(0, 234, 255);
 }
 
 #grid-pagina>section{
@@ -270,3 +276,30 @@ body.dark{
     min-width: 450px;
     border-color: var(--culoare_border_at);
 }
+
+
+@keyframes slideIn {
+    0% {
+        bottom: -100px; /* Începe de sub ecran */
+        color: blue; /* Culoarea inițială a textului */
+    }
+    50% {
+        bottom: 20px; /* La jumătatea animației, bannerul va fi 20px deasupra graniței de jos a paginii */
+        color: red; /* Culoarea textului se schimbă */
+    }
+    100% {
+        bottom: 0; /* La final, bannerul se aliniază cu granița de jos a paginii */
+        color: rgb(204, 187, 58); /* Culoarea textului se schimbă din nou */
+    }
+}
+
+.cookie-banner {
+    background-color: #5779b6;
+    position: fixed;
+    width: 100%;
+    display: none; /* Bannerul este inițial ascuns */
+    animation: slideIn 3s; /* Aplică animația definită mai sus */
+    animation-fill-mode: forwards; /* Pastram starea finala a animatiei */
+}
+
+

@@ -56,6 +56,7 @@ ul.meniu{
         &:hover ul{
             opacity: 1;
             transform: scale(1,1);
+            // asta e parte de cod care face submeniul care merge in jos
         }
         &:hover>div{
             color: pink;

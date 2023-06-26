@@ -5,6 +5,7 @@
         <meta name="keywords" content="masini, Turis Peformance, coupe, break, sedan, cabrio, BMW, Audi, Ford, Renault, Skoda">
         <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
         <title>Turis Performance - home</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <%- include("../fragmente/head") %>     
         <script type="text/javascript" src=/resurse/js/produse.js></script>
 
@@ -12,117 +13,223 @@
     <body>
     <%- include("../fragmente/header") %>
 
-    <main>
-        <label> Nume: <input type="text" id="inp-nume"></label>
-        <div class="range_">
-            <label for="inp-pret">Pret minim:<span class="range-min">0</span> <input type="range" id="inp-pret" value="0" min="0" max="100000" step="1000"><span id="infoRange">(0)</span></label>
-            <span class="range-max">10000000</span>
+    <main class="container">
+        <div class="row">
+            <div class="col-sm">
+                <label> Nume: 
+                    <input type="text" id="inp-nume" class="form-control">
+                </label>
+            </div>
+            <div class="col-sm">
+                <label>Tipul caroseriei:
+                    <select id="inp-categorie" class="form-select">
+                        <option id="sel-toate" selected value="toate">toate</option>
+                        <% for (let opt of locals.optiuni) { %>
+                            <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                        <% } %>
+                    </select>
+                </label>
+            </div>
+            <div class="col-sm">
+                <label for="i_datalist" class="col-form-label">Culoare:</label>
+                <input list="id_lista" class="form-control" value="toate" id="i_datalist">
+                <datalist id="id_lista">
+                    <option value="toate">toate</option>
+                    <option value="negru">negru</option>
+                    <option value="albastru">albastru</option>
+		            <option value="rosu">rosu</option>
+		            <option value="gri">gri</option>
+		            <option value="galben">galben</option>
+                    <option value="alb">alb</option>
+                </datalist>
+            </div>
         </div>
-        <label>Tipul caroseriei:
-            <select id="inp-categorie">
-                <option id="sel-toate" selected value="toate">toate</option>
-                <% for (let opt of locals.optiuni) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                <% } %>
-            </select>
-        </label>
-        <label>Marca:
-            <select id="inp-marca" multiple>
-                <!-- <option id="sel-toate" selected value="toate">toate</option> -->
-                <option value="toate">toate</option>
-                <option value="Audi">Audi</option>
-                <option value="BMW">BMW</option>
-                <option value="Honda">Honda</option>
-                <option value="Chevrolet">Chevrolet</option>
-                <option value="Dacia">Dacia</option>
-                <option value="Fiat">Fiat</option>
-                <option value="Opel">Opel</option>
-                <option value="Mitsubishi">Mitsubishi</option>
-                <option value="Renault">Renault</option>
-            </select>
-        </label>
-    </label>
-	<label>Culoare:
-		<input list="id_lista" id="i_datalist">
-		<datalist id="id_lista">
-            <option value="toate">toate</option>
-			<option value="negru">negru</option>
-			<option value="albastru">albastru</option>
-			<option value="rosu">rosu</option>
-			<option value="gri">gri</option>
-			<option value="galben">galben</option>
-            <option value="alb">alb</option>
-		</datalist>
-	</label>
-        <div> Combustibil:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
-            <p><label>Benzina
-                <input id="i_rad2"  name="gr_rad" value="benzina" type="radio"/>
-            </label>
-            <p><label>Diesel
-                <input id="i_rad1"  name="gr_rad" value="diesel" type="radio"/>
-            </label>
-            <p><label>Electrica
-                <input id="i_rad3" name="gr_rad" value="electrica" type="radio"/>
-            </label>
-            <p><label>Hybrid
-                <input id="i_rad4" name="gr_rad" value="hybrid" type="radio"/>
-            </label>
-            <p><label>Toate
-                <input id="i_rad5" checked name="gr_rad" value="toate" type="radio"/>
-            </label>
+        <div class="row">
+            <div class="col-sm">
+                <div class="range_">
+                    <label class="form-label" for="inp-pret">Pret minim:
+                        <!-- <span class="range-min">0</span>  -->
+                        <input class="form-range" type="range" id="inp-pret" value="0" min=<%= pret_minim %> max=<%= pret_maxim %> step="10000" class="form-control-range">
+                        <span id="infoRange">(0)</span>
+                    </label>
+                    <!-- <span class="range-max">10000000</span>  -->
+                </div>
+            </div>
+            <div class="col-sm">
+                <label for="inp-marca" class="col-form-label">Marca:</label>
+                 <select class="form-control" id="inp-marca" multiple>
+                        <!-- <option id="sel-toate" selected value="toate">toate</option> -->
+                        <option value="toate" selected>toate</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Dacia">Dacia</option>
+                        <option value="Fiat">Fiat</option>
+                        <option value="Opel">Opel</option>
+                        <option value="Mitsubishi">Mitsubishi</option>
+                        <option value="Renault">Renault</option>
+                    </select>
+                </label>
+            </div>
+            <div class="col-sm">
+                <div class="btn-group" data-toggle="buttons">Combustibil:
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="gr_rad" id="i_rad1" value="diesel"> Diesel
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="gr_rad" id="i_rad2" value="benzina"> Benzina
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="gr_rad" id="i_rad3" value="electrica"> Electrica
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="gr_rad" id="i_rad4" value="hybrid"> Hybrid
+                    </label>
+                    <label class="btn btn-outline-primary">
+                        <input type="radio" name="gr_rad" id="i_rad5" value="toate" checked> Toate
+                    </label>
+                </div>
+            </div>
         </div>
-        <label>Accidentat
-            <input id="i_check1" name="gr_chck" value="true" type="checkbox"/>
-        </label>
-        <label>Dotari:
-            <textarea id="i_textarea">ceva in textarea</textarea>
-        </label>
-        <p>
-            <button id="filtrare">Filtreaza</button> 
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="i_check1">
+                    <label class="form-check-label" for="i_check1">
+                        Accidentat
+                    </label>
+                </div>
+            </div> 
+            <div class="col-sm">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="i_check2">
+                    <label class="form-check-label" for="i_check2">
+                        Noutăți
+                    </label>
+                </div>
+            </div>
+            <!-- <div class="col-sm">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="saveFilter">
+                    <label class="form-check-label" for="saveFilter">
+                        Salveaza Filtrare
+                    </label>
+                </div>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="form-floating">
+                    <textarea class="form-control" id="i_textarea" placeholder="Dotari"></textarea>
+                    <label for="i_textarea">Dotari</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <button class="btn btn-primary" id="filtrare">Filtreaza <i class="bi bi-filter"></i></button> 
+                <button class="btn btn-secondary" id="resetare">Reseteaza <i class="bi bi-x-square"></i></button><br/>
+                <!-- <button class="btn btn-primary" id="sortCrescNume">Sorteaza crescator dupa pret si nume <i class="bi bi-sort-up"></i></button>
+                <button class="btn btn-secondary" id="sortDescrescNume">Sorteaza descrescator dupa pret si nume <i class="bi bi-sort-down"></i></button>  -->
+                <div class="sortare_dinamica">
+                    <!-- Exemplu de select-uri pentru cheile de sortare -->
+                        <select id="selectCheie1" class="form-select form-select-sm" >
+                            <option value="pret">Preț</option>
+                            <option value="nume">Nume</option>
+                            <option value="categorie">Categorie</option>
+                        </select>
 
-            <button id="resetare">Reseteaza</button><br/>
-            <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
-            <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
-        </p>
-        
+                        <select id="selectCheie2" class="form-select form-select-sm">
+                            <option value="pret">Preț</option>
+                            <option value="nume">Nume</option>
+                            <option value="categorie">Categorie</option>
+                        </select>
+
+                        <!-- Exemplu de select pentru ordine -->
+                        <select id="selectOrdine" class="form-select form-select-sm">
+                            <option value="crescator">Crescător</option>
+                            <option value="descrescator">Descrescător</option>
+                        </select>
+
+                        <!-- Buton pentru a aplica sortarea -->
+                        <button id="btnSortare" class="btn btn-secondary btn-sm">Sortează</button>
+
+                </div>
+                  
+            </div>
         <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
-
         <section id="produse">
             <h2>Produse</h2>
-            <div class="grid-produse">
-                <% for( let prod of locals.produse) { %>
-                    <article class="produs" >
-                    <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
-                    <div class="col1">  
-                        <figure>
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                        </figure>
-                        <div class="info-prod">
-                            <p class="pret"><span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="marca"><span class="val-marca"><%- prod.marca%></span></p>
-                            <p class="culoare"><span class="val-culoare"><%- prod.culoare%></span></p>
-                            <p class="dotari"><span class="val-dotari"><%- prod.dotari%></span></p>
-                            <p class="data_fabricare"><time class="val-data_fabricare" datetime="<%- prod.data_fabricare_ISO %>"><%- new Date(prod.data_fabricare).toLocaleDateString('ro-RO', {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) %></time></p>
-                            <p class="accidentata"><span class="val-accidentata"><%- prod.accidentata%></span></p>
-                        </div>
+            <div class="row" id="produse-container">
+                <% for(let prod of locals.produse) { %>
+                    <div class="col-sm-4 card produs">
+                        <article>
+                            <img class="card-img-top" src="/resurse/imagini/produse/<%- prod.imagine %>" alt="[imagine <%- prod.nume %>]" />
+                            <div class="card-body">
+                                <h3 class="card-title nume">
+                                    Nume: <a href="/produs/<%-prod.id %>"><span class="val-nume"><%- prod.nume%></span></a>
+                                </h3>
+                                <div class="row">
+                                    <div class="col1 col-sm-6">  
+                                        <p class="card-text">
+                                            <span class="text-red">Pret:</span>
+                                            <span class="val-pret"><%- prod.pret%></span>
+                                        </p>
+                                        <p class="card-text">
+                                            <span class="text-red">Marca:</span>
+                                            <span class="val-marca"><%- prod.marca%></span>
+                                        </p>
+                                        <p class="card-text">
+                                            <span class="text-red">Culoare:</span>
+                                            <span class="val-culoare"><%- prod.culoare%></span>
+                                        </p>
+                                    </div>
+                                    <div class="col2 col-sm-6">  
+                                        <p class="card-text">
+                                            <span class="text-red">Dotari:</span>
+                                            <span class="val-dotari"><%- prod.dotari%></span>
+                                        </p>
+                                        <p class="card-text">
+                                            <span class="text-red">Data Fabricare:</span>
+                                            <time class="val-data_fabricare" datetime="<%- prod.data_fabricare_ISO %>"><%- new Date(prod.data_fabricare).toLocaleDateString('ro-RO', {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) %></time>
+                                        </p>
+                                        <p class="card-text">
+                                            <span class="text-red">Acidentata:</span>
+                                            <span class="val-accidentata"><%- prod.accidentata%></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="dreapta"> 
+                                            <p class="card-text">
+                                                <span class="text-red">Tip Caroserie:</span>
+                                                <span class="val-tipuri"><%- prod.tipuri_caroserie%></span>
+                                            </p>
+                                            <p class="card-text">
+                                                <span class="text-red">Combustibil:</span>
+                                                <span class="val-combustibil"><%- prod.combustibil%></span>
+                                            </p>
+                                            <p class="card-text">
+                                                <span class="text-red">Descriere:</span>
+                                                <span class="val-descriere"><%- prod.descriere%></span>
+                                            </p>
+                                        </div>
+                                        <label class="selecteaza-cos">
+                                            Selectează:<br/>
+                                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                                        </label>
+                                        <a href="/produs/<%-prod.id %>" class="btn btn-primary">Vezi mai multe</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                      <div class="col2">  
-                         <div clas="dreapta"> 
-                        <p class="tipuri_caroserie"><span class="val-tipuri"><%- prod.tipuri_caroserie%></span></p>
-                        <p class="combustibil"> <span class="val-combustibil"><%- prod.combustibil%></span></p>
-                        <p class="descriere"> <span class="val-descriere"><%- prod.descriere%></span></p>
-                    </div>
-                </div>
-                        <label class="selecteaza-cos">
-                            Selectează:<br/>
-                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
-                        </label>
-                    </article>
-                <% }%>
+                <% } %>
             </div>
-        </section>
+        </section>             
     </main>
-
     <%- include("../fragmente/footer") %>
     </body>
 </html>

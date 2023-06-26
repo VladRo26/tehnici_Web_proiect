@@ -1,0 +1,116 @@
+#acasa1 {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+#hamburger, #ch-menu {
+  display: none;
+}
+
+body {
+  --inaltime-meniu:50px;
+  --latime-buton:200px;
+  --culoare-meniu:#5779b6;
+  --culoare-border-butoane:black;
+  margin: 0;
+}
+
+nav {
+  --culoare-text-meniu1:#D6B140;
+  --culoare-text-meniu2:#C20F0C;
+  background-color: var(--culoare-meniu);
+  height: var(--inaltime-meniu);
+  width: calc(100vw - 18px); /*Scapam de scroll-bar orizontal*/
+  margin-left: calc(-1 * var(--spatiere-pagina));
+  position: sticky;
+  z-index: 4;
+  top: 0;
+}
+
+ul.meniu {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+ul.meniu > li {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: var(--latime-buton);
+}
+
+ul.meniu li {
+  width: var(--latime-buton);
+  height: var(--inaltime-meniu);
+  background-color: var(--culoare-meniu);
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle; /*Nu merge pentru divuri, doar pentru tabele*/
+  border: 1px solid var(--culoare-border-butoane);
+  position: relative;
+  box-sizing: border-box;
+}
+
+ul.meniu ul {
+  position: absolute;
+  padding: 0;
+  list-style-type: none;
+  opacity: 0;
+  transition: all 1s linear;
+  transform-origin: center top;
+  transform: scale(0, 0);
+  z-index: 999;
+}
+
+ul.meniu li:hover ul {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+ul.meniu li div, ul.meniu li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: var(--culoare-text-meniu1);
+  text-decoration: none;
+  font-weight: bold;
+  line-height: var(--inaltime-meniu);
+}
+
+ul.meniu li:hover {
+  overflow: visible;
+}
+
+ul.meniu li:hover > div, ul.meniu li > a:hover {
+  color: pink;
+  transition: color 0.5s ease-in-out;
+}
+
+ul.meniu ul ul {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
+ul.meniu li:hover ul.sub-list {
+  left: 100%;
+}
+
+#acasa1 {
+  display: inline-block;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.fa-house {
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
+#acasa:hover #acasa1 {
+  visibility: visible;
+  opacity: 1;
+}

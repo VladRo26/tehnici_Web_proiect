@@ -1,60 +1,64 @@
-.grid-produse {
-    display: grid;
-    grid-template-columns: 2;
-    gap: 2em;
+#produse {
     width: 80%;
     margin: 0 auto;
 }
 
-.produs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 5px;
+.card.produs {
     border: 5px solid black;
     border-radius: 5px;
     margin-bottom: 10px;
-    padding: auto;
 }
-  
-.col1 {
-    grid-column: 1;
-}
-  
-.col2 {
-    grid-column: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-}  
   
 .nume {
     font-size: 1.5em;
 }
 
-.info-prod p:before {
-    content: attr(class) ": ";
-    font-weight: bold;
-    color: var(--culoare_text3);
-    /* altfel nu stiu sa fac am stat 3 ore sa caut selectori */
+.text-red {
+    color: red;
 }
 
-.col2 p:before {
-    content: attr(class) ": ";
-    font-weight: bold;
-    color: var(--culoare_text3);
-    /* altfel nu stiu sa fac am stat 3 ore sa caut selectori */
-}
-  
 article[class^="produs"] {
     counter-increment: produs-counter;
 }
   
-  article[class^="produs"]::before {
+article[class^="produs"]::before {
     content: "artc-" counter(produs-counter);
 }
 
-.culoare{
-    display: none;
+.card-img-top {
+    width: 100%;
+    height: auto;
 }
+
+.card-title a {
+    color: #b31010; /* Schimbați aceasta cu orice culoare doriți */
+}
+
+.card-title a:hover {
+    color: #860808; /* Schimbați aceasta cu orice culoare doriți */
+}
+
+.btn-primary {
+    background-color: #139ca8; /* Schimbați aceasta cu orice culoare doriți */
+    border-color: #1564b8; /* Schimbați aceasta cu orice culoare doriți */
+}
+
+.btn-primary:hover {
+    background-color: #209fa5; /* Schimbați aceasta cu orice culoare doriți */
+    border-color: #24acb9; /* Schimbați aceasta cu orice culoare doriți */
+}
+
+.col1, .col2 {
+    padding: 2px;
+}
+
+.card.produs {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
   

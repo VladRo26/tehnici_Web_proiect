@@ -7,11 +7,15 @@ inca nu am implementat protectia contra SQL injection
 const {Client, Pool}=require("pg");
 
 
+//aici definim clasa, nu avem nevoie de destructori in js ca se fac automat
 class AccesBD{
+    //static este pentru toate instantele, nu depinde de obiectele din clasa
     static #instanta=null;//# inseamna private
     static #initializat=false;
 
+    //aici definim constructorul
     constructor() {
+        //avem singleton, putem sa facem doar o instanta a clasei
         if(AccesBD.#instanta){
             throw new Error("Deja a fost instantiat");
         }
@@ -21,6 +25,7 @@ class AccesBD{
     }
 
     initLocal(){
+        //ne logam la baza de date, printr o conexiune unica prin care trimitem queery
         this.client= new Client({database:"site",
             user:"vlad1", 
             password:"parola", 
@@ -32,8 +37,10 @@ class AccesBD{
         //         host:"localhost", 
         //         port:5432});
         this.client.connect();
+        //ne conectam
     }
 
+    //un getter 
     getClient(){
         if(!AccesBD.#instanta ){
             throw new Error("Nu a fost instantiata clasa");
@@ -53,17 +60,24 @@ class AccesBD{
      * @param {ObiectConexiune} un obiect cu datele pentru query
      * @returns {AccesBD}
      */
+
+    //se asteapta sa primeasca un obiect cu init, cu o valoare default, daca primim un obiect vid, o sa cosidere ca a primit obiectul cu local
     static getInstanta({init="local"}={}){
 
         console.log(this);//this-ul e clasa nu instanta pt ca metoda statica
+        //asa definim un obiect pentru instanta, nu static
+        //prima oara va fi null
         if(!this.#instanta){
+            // o sa o initializeze prima oara
             this.#initializat=true;
+            //aici construim instanta unica a clasei
             this.#instanta=new AccesBD();
 
             //initializarea poate arunca erori
             //vom adauga aici cazurile de initializare 
             //pentru baza de date cu care vrem sa lucram
             try{
+                //verificam daca este local, sau daca avem alt caz
                 switch(init){
                     case "local":this.#instanta.initLocal();
                 }
@@ -103,10 +117,17 @@ class AccesBD{
      * @param {ObiectQuerySelect} obj - un obiect cu datele pentru query
      * @param {function} callback - o functie callback cu 2 parametri: eroare si rezultatul queryului
      */
+
+    //primim un obiect ce are urmatoarele proprietati, tabelul , coloanele si conditiile where si and
+    //callback ul este functia cu err si Rez, ca sa facem ceva cu rezultatul
     select({tabel="",campuri=[],conditiiAnd=[]} = {}, callback, parametriQuery=[]){
+        //string in care punem conditia where
         let conditieWhere="";
+        //verificam daca avem where
         if(conditiiAnd.length>0)
+        //vom pune where si apoi x and y
             conditieWhere=`where ${conditiiAnd.join(" and ")}`; 
+        //aici facem selectul si pune, , intre campuri si apoi conditia where
         let comanda=`select ${campuri.join(",")} from ${tabel} ${conditieWhere}`;
         console.error(comanda);
         /*
@@ -116,6 +137,7 @@ class AccesBD{
         */
         this.client.query(comanda,parametriQuery, callback)
     }
+    //o functie asincrona ce returneaza rezultatul
     async selectAsync({tabel="",campuri=[],conditiiAnd=[]} = {}){
         let conditieWhere="";
         if(conditiiAnd.length>0)
@@ -133,6 +155,9 @@ class AccesBD{
             return null;
         }
     }
+    //camp : valoare
+
+    //AccessBd.getInstanta().insert({tabel:"produse", campuri:{nume:"savarina",pret:10}})
     insert({tabel="",campuri={}} = {}, callback){
 
              /*
@@ -143,8 +168,14 @@ class AccesBD{
         }
         */  
         console.log("-------------------------------------------")
+        //avem chei si valori, proprietatea este cheia
         console.log(Object.keys(campuri).join(","));
+        //separam cheia de valoare a={x:100, y:200}
+        //object.keys(a) e x,y
         console.log(Object.values(campuri).join(","));
+        //object.keys(a) e 10,20
+        //inseram in tabel
+        //facem join sa punem, intre randuri si apoi mapam fiecare valoare a vectorului si ii pune ' la stanga si la dreapta, deoarece este valabil si pentru stringuri si pentru orice
         let comanda=`insert into ${tabel}(${Object.keys(campuri).join(",")}) values ( ${Object.values(campuri).map((x) => `'${x}'`).join(",")})`;
         console.log(comanda);
         this.client.query(comanda,callback)
@@ -226,3 +257,4 @@ class AccesBD{
 }
 
 module.exports=AccesBD;
+//importam cu requaire in programul principal adica in index.js

@@ -1,0 +1,30 @@
+<div id="grid-galerie">
+    <% let count = 0; %>
+    <% 
+    let imaginiAlese = [];
+    while(imaginiAlese.length < Math.floor(Math.random() * (11 - 7) + 7)) {
+        let randomIndex = Math.floor(Math.random() * locals.imagini.length);
+        if(!imaginiAlese.includes(randomIndex)) {
+            imaginiAlese.push(randomIndex);
+        }
+    }
+    %>
+    <% for (let i = 0; i < imaginiAlese.length; i++) { 
+        const imag = locals.imagini[imaginiAlese[i]];
+        const interval = imag.timp.split('-');
+        const oraInceput = parseInt(interval[0]);
+        const oraSfarsit = parseInt(interval[1]);
+        const oraCurenta = new Date().getHours();
+        if (oraCurenta >= oraInceput && oraCurenta <= oraSfarsit) { %>
+            <figure class="gal_fig">
+                <picture>
+                    <source srcset="<%= imag.fisier %>" media="(max-width:500px)" />
+                    <source srcset="<%= imag.fisier %>" media="(max-width:1000px)" />
+                    <img src="<%= imag.fisier %>" alt="imagine">
+                </picture>
+                <figcaption><%= imag.descriere %></figcaption>
+            </figure>
+        <% }
+        count++;
+    } %>
+</div>

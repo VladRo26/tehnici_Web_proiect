@@ -1,0 +1,48 @@
+<form id="form_inreg" method="post" class="date" action="<%= locals.action %>" enctype="multipart/form-data">
+    <!-- inputurile le punem in tagurile form cand trimitem datele catre server din formular si o sa scriem un app.post. 
+        Action inseamna ce parametru punem in app.post adica de exemplu /inregistrare, enctype il punem ca sa uploadam poze -->
+    <!-- formularul are un locals -->
+    <div class="form-group">
+        <label for="inp-username">Username:</label>
+        <input type="text" class="form-control" name="username" id="inp-username" value="prof<%= Math.floor(Math.random()*100000) %>" required pattern="[A-Za-z0-9#_./]+">
+        <!-- sa contina orice litera, orice numar si orice caracter special si plus inseamna sa fie macar una -->
+    </div>
+    <div class="form-group">
+        <label for="inp-nume">Nume:</label>
+        <input type="text" class="form-control" name="nume" id="inp-nume" value="Gogulescu">
+    </div>
+    <div class="form-group">
+        <label for="inp-prenume">Prenume:</label>
+        <input type="text" class="form-control" name="prenume" id="inp-prenume" value="Gogu">
+    </div>
+    <div class="form-group">
+        <label for="parl">Parola:</label>
+        <input type="password" class="form-control" id="parl" name="parola" required>
+    </div>
+    <div class="form-group" id="p-reintrod">
+        <label for="rparl">Reintroduceti parola:</label>
+        <input type="password" class="form-control" id="rparl" name="rparola" required>
+    </div>
+    <div class="form-group">
+        <label for="inp-email">Email:</label>
+        <input type="text" class="form-control" name="email" id="inp-email" required value="profprofprof007@gmail.com" size="50">
+    </div>
+    <div class="form-group">
+        <label for="sel-culoare">Culoare text chat:</label>
+        <select class="form-control" name="culoare_chat" id="sel-culoare">
+            <option value="red" selected>rosu</option>
+            <option value="green">verde</option>
+            <option value="blue">albastru</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="inp-poza">Poza:</label>
+        <input type="file" class="form-control-file" name="poza" id="inp-poza">
+    </div>
+    <div class="form-group">
+        <!-- trimite datele catre sever si reseteaza valorile default -->
+        <input type="submit" class="btn btn-primary" value="Trimite">
+        <input type="reset" class="btn btn-secondary" value="Reseteaza">
+    </div>
+</form>
+    

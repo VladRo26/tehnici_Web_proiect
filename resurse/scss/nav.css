@@ -59,6 +59,7 @@ ul.meniu li:hover ul {
   color: pink;
   opacity: 1;
   transform: scale(1, 1);
+  /* astea e partea de cod care face ca submeniul sa mearga in jos */
 }
 ul.meniu li:hover > div {
   color: pink;

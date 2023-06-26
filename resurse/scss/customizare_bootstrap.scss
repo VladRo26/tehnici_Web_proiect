@@ -2,7 +2,7 @@
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with(
 
     $primary: #D6B140,
-    $secondary: #C20F0C,
+    $secondary: #3372ad,
 
     /*culorile de background pentru minim 2 teme la alegere pe care aplicați tema cromatică schimbată (customizată de voi)*/
 
@@ -34,12 +34,28 @@
     $h2-font-size:                3rem,
     $h3-font-size:                2.5rem,
     $h4-font-size:                2rem,
-    $h5-font-size:                1rem
+    $h5-font-size:                1rem,
 
-    /*dimensiunea literelor  headingurilor (h1,h2 etc)*/
+        /*dimensiunea literelor  headingurilor (h1,h2 etc)*/
 
 
-    
+    $input-btn-padding-y: .375rem,
+    $input-btn-padding-x: .75rem,
+    $input-btn-font-size: .875rem,
+    $input-btn-line-height: 1.5,
+
+    $input-padding-y: .375rem,
+    $input-padding-x: .75rem,
+    $input-font-size: .875rem,
+    $input-line-height: 1.5,
+
+    $input-color: grey,
+    $input-bg: white,
+    $input-border-color: rgb(179, 153, 153),
+
+    $input-btn-focus-width: 2px,
+    $input-btn-focus-color: rgba(61, 61, 136, 0.657)
+
 )
 
 

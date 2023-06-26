@@ -73,6 +73,29 @@
             </ul>
         </li>
         <li>
+            <a href="http://localhost:8080/inregistrare">Inregistrare
+            </a>
+        </li>
+        <!-- ?. verific daca are prorietatea utilizator -->
+        <% if(locals?.utilizator?.areDreptul?.(Drepturi.vizualizareUtilizatori)) { %>
+            <li><div>Administrare</div>
+                <ul>
+                    <li><a href="/useri">Useri</a></li>
+                    <li><a href="/grafice">Grafice</a></li>
+                    <li><a href="/comenzi">Comenzi</a></li>
+                </ul>
+            </li>
+        <% } %>
+        <% if(locals.utilizator) { %>
+            <li><div><%- locals.utilizator.username %></div>
+                <ul>
+                    <li><a href="/profil">Profil</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/chat">Chat</a></li>
+                </ul>
+            </li>
+        <% } %>
+        <li>
             <div>
                 Stoc Masini
             </div>
@@ -86,10 +109,17 @@
                   <% } %>
             </ul>
         </li>
-        <li>
-            <a href="#Discounturi">Discounturi
-            </a>
-        </li>
+        <li><a href="/cos-virtual">Cos virtual</a></li>
+                <% if(locals?.utilizator?.areDreptul?.(Drepturi.vizualizareUtilizatori)) { %>
+                    <li><div>Administrare</div>
+                        <ul>
+                            <li><a href="/useri">Useri</a></li>
+                            <li><a href="/grafice">Grafice</a></li>
+                            <li><a href="/comenzi">Comenzi</a></li>
+                        </ul>
+                    </li>
+                <% } %>
+        <li><a href="/contact">Contact</a></li>
         <li>
             <a href="http://localhost:8080/locatii">Locatii showroom-uri
             </a>
@@ -97,10 +127,6 @@
         <li>
              <a href="http://localhost:8080/despre_noi">Despre noi
              </a>
-        </li>
-        <li>
-            <a href="#Contact">Contact
-            </a>
         </li>
     </ul>
 </nav>

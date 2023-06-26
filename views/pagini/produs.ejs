@@ -21,13 +21,13 @@
                     <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
                     <p>Capacitate cilindrica: <span class="capacitate_cilindrica"><%- locals.prod.capacitate_cilindrica %> </span></p>
                     <p>Combustibil: <span class="combustibil"><%- locals.prod.combustibil %> </span></p>
-                    <p>Data Fabricatie: <span class="data_fabricatie"><%- locals.prod.data_fabricare %> </span></p>
                     <p>Tip caroserie: <span class="tip_caroserie"><%- locals.prod.tipuri_caroserie %> </span></p>
+                    <p>Data Fabricatie: <span class="data_fabricare"><time class="val-data_fabricare" datetime="<%- locals.prod.data_fabricare_ISO %>"><%- new Date(locals.prod.data_fabricare).toLocaleDateString('ro-RO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %></time></spanp>
                     <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
                     <p>Marca: <span class="marca"><%- locals.prod.marca %> </span></p>
                     <p>Dotari: <span class="dotrari"><%- locals.prod.dotari %> </span></p>
                     <p>Accidentata: <span class="accidentata"><%- locals.prod.accidentata %> </span></p>
-                    <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+                    <p>Data adăugare: <span class="data_adaugare"><time class="val-data_fabricare" datetime="<%- locals.prod.data_adaugare_ISO %>"><%- new Date(locals.prod.data_adaugare).toLocaleDateString('ro-RO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %></time></spanp>
                     <figure class="imag-produs">
                         <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
                     </figure>    
